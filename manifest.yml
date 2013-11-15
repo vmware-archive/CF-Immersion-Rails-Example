@@ -11,7 +11,7 @@ applications:
   domain: cfapps.io
   path: .
   services:
-    mysql2:
+    mysql-rails:
       label: cleardb
       provider: cleardb
       version: n/a
