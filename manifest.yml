@@ -1,0 +1,18 @@
+---
+applications:
+- name: instruments
+  env:
+    RAILS_ENV: cloud
+    RACK_ENV: cloud
+  command: "bundle exec rake cf:on_primary_instance db:migrate && bundle exec rackup -p $PORT" 
+  memory: 256M
+  instances: 1
+  host: instruments
+  domain: cfapps.io
+  path: .
+  services:
+    mysql2:
+      label: cleardb
+      provider: cleardb
+      version: n/a
+      plan: spark
